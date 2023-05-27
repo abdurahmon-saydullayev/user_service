@@ -8,7 +8,6 @@ const (
 	ErrTheSameId                   = "cannot use the same uuid for 'id' and 'parent_id' fields"
 	ErrRpcNodFoundAndNoRows        = "rpc error: code = NotFound desc = no rows in result set"
 	ErrNoRows                      = "no rows in result set"
-	ErrObjectType                  = "object type error: code = NodFound"
+	ErrObjectType                  = "object type error: code =  NodFound"
 	ErrEnvNodFound                 = "No .env file found"
-	DateFormat                     = "2006-01-02"
 )

@@ -19,41 +19,43 @@ const (
 
 type Config struct {
 	ServiceName string
+	ServiceHost string
+	ServicePort string
+
 	Environment string // debug, test, release
 	Version     string
 
+	
 	PostgresHost     string
 	PostgresPort     int
 	PostgresUser     string
 	PostgresPassword string
 	PostgresDatabase string
 
-	UserServiceHost string
-	UserGRPCPort    string
-
 	PostgresMaxConnections int32
 }
 
 // Load ...
 func Load() Config {
-	if err := godotenv.Load("/ibron_go_user_service.env"); err != nil {
-		fmt.Println("No .env file found")
+	if err := godotenv.Load(); err != nil {
+		fmt.Println(ErrEnvNodFound)
 	}
 
 	config := Config{}
 
-	config.ServiceName = cast.ToString(getOrReturnDefaultValue("SERVICE_NAME", "ibron_user"))
+	config.ServiceName = cast.ToString(getOrReturnDefaultValue("SERVICE_NAME", "user"))
+	config.ServiceHost = cast.ToString(getOrReturnDefaultValue("SERVICE_HOST", "localhost"))
+	config.ServicePort = cast.ToString(getOrReturnDefaultValue("SERVICE_PORT", ":8081"))
+
 	config.Environment = cast.ToString(getOrReturnDefaultValue("ENVIRONMENT", DebugMode))
 	config.Version = cast.ToString(getOrReturnDefaultValue("VERSION", "1.0"))
 
-	config.PostgresHost = cast.ToString(getOrReturnDefaultValue("POSTGRES_HOST", "localhost"))
+
+	config.PostgresHost = cast.ToString(getOrReturnDefaultValue("POSTGRES_HOST", "0.0.0.0"))
 	config.PostgresPort = cast.ToInt(getOrReturnDefaultValue("POSTGRES_PORT", 5432))
 	config.PostgresUser = cast.ToString(getOrReturnDefaultValue("POSTGRES_USER", "abdurahmon"))
 	config.PostgresPassword = cast.ToString(getOrReturnDefaultValue("POSTGRES_PASSWORD", "aus1003"))
 	config.PostgresDatabase = cast.ToString(getOrReturnDefaultValue("POSTGRES_DATABASE", config.ServiceName))
-
-	config.UserServiceHost = cast.ToString(getOrReturnDefaultValue("USER_SERVICE_HOST", "localhost"))
-	config.UserGRPCPort = cast.ToString(getOrReturnDefaultValue("USER_GRPC_PORT", ":9091"))
 
 	config.PostgresMaxConnections = cast.ToInt32(getOrReturnDefaultValue("POSTGRES_MAX_CONNECTIONS", 30))
 

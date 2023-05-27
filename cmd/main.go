@@ -1,13 +1,13 @@
 package main
 
 import (
-	"GoProject/user_service/config"
-	"GoProject/user_service/grpc"
-	"GoProject/user_service/grpc/client"
-	"GoProject/user_service/pkg/logger"
-	"GoProject/user_service/storage/postgres"
 	"context"
 	"net"
+	"user_service/grpc"
+	"user_service/grpc/client"
+	"user_service/pkg/logger"
+	"user_service/storage/postgres"
+	"user_service/config"
 
 	"github.com/gin-gonic/gin"
 )
