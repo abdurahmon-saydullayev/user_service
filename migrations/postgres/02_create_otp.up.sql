@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS "sms_otp" (
+    "id" UUID PRIMARY KEY,
+    "phone_number" VARCHAR(17) NOT NULL,
+    "otp" VARCHAR(6) NOT NULL,
+    "is_verify" BOOLEAN DEFAULT FALSE,
+    "created_at" TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

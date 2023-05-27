@@ -1,0 +1,3 @@
+[submodule "store-protos"]
+	path = store-protos
+	url = https://github.com/abdurahmon-saydullayev/store-protos.git
