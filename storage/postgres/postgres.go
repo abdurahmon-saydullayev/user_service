@@ -1,11 +1,12 @@
 package postgres
 
 import (
+	"user_service/config"
+	"user_service/storage"
+
 	"context"
 	"fmt"
 	"log"
-	"user_service/config"
-	"user_service/storage"
 
 	"github.com/jackc/pgx"
 	"github.com/jackc/pgx/v4/pgxpool"
