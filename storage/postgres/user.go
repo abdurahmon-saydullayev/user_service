@@ -58,7 +58,7 @@ func (u *userRepo) Create(ctx context.Context, req *user_service.CreateUser) (re
 }
 
 func (u *userRepo) GetByPK(ctx context.Context, req *user_service.UserPrimaryKey) (user *user_service.User, err error) {
-
+	// var user *user_service.User
 	query := `
 		SELECT 
 			id,
@@ -108,6 +108,15 @@ func (u *userRepo) GetByPK(ctx context.Context, req *user_service.UserPrimaryKey
 		CreatedAt:   created_at.String,
 		UpdatedAt:   updated_at.String,
 	}
+
+	// user.Id=id.String
+	// user.FirstName=first_name.String
+	// user.LastName=last_name.String
+	// user.PhoneNumber=phone_number.String
+	// user.DateOfBirth=date_of_birth.String
+	// user.Password=password.String
+	// user.CreatedAt=created_at.String
+	// user.UpdatedAt=updated_at.String
 
 	return user, nil
 }

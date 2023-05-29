@@ -56,7 +56,7 @@ func (u *UserService) GetByPK(ctx context.Context, req *user_service.UserPrimary
 	if err != nil {
 		return nil, err
 	}
-	
+
 	return user, err
 }
 
@@ -177,5 +177,5 @@ func (i *UserService) Check(ctx context.Context, req *user_service.UserPhoneNumb
 		return nil, status.Error(codes.InvalidArgument, err.Error())
 	}
 
-	return
+	return resp, err
 }
