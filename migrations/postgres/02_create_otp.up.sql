@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS "sms_otp" (
+CREATE TABLE IF NOT EXISTS "otp" (
     "id" UUID PRIMARY KEY,
     "phone_number" VARCHAR(17) NOT NULL,
     "otp" VARCHAR(6) NOT NULL,
