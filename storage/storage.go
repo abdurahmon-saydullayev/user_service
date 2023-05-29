@@ -2,8 +2,8 @@ package storage
 
 import (
 	"context"
-	"user_service/genproto/user_service"
-	"user_service/models"
+	"Projects/store/user_service/genproto/user_service"
+	"Projects/store/user_service/models"
 )
 
 type StorageI interface {

@@ -1,8 +1,8 @@
 package postgres
 
 import (
-	"user_service/config"
-	"user_service/storage"
+	"Projects/store/user_service/config"
+	"Projects/store/user_service/storage"
 
 	"context"
 	"fmt"

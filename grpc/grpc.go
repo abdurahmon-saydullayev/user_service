@@ -1,12 +1,12 @@
 package grpc
 
 import (
-	"user_service/config"
-	"user_service/genproto/user_service"
-	"user_service/grpc/client"
-	"user_service/grpc/service"
-	"user_service/pkg/logger"
-	"user_service/storage"
+	"Projects/store/user_service/config"
+	"Projects/store/user_service/genproto/user_service"
+	"Projects/store/user_service/grpc/client"
+	"Projects/store/user_service/grpc/service"
+	"Projects/store/user_service/pkg/logger"
+	"Projects/store/user_service/storage"
 
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"

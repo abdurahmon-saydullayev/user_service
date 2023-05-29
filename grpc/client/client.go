@@ -1,6 +1,6 @@
 package client
 
-import "user_service/config"
+import "Projects/store/user_service/config"
 
 type ServiceManagerI interface{}
 

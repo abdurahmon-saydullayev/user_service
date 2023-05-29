@@ -5,9 +5,9 @@ import (
 	"database/sql"
 	"errors"
 	"fmt"
-	"user_service/genproto/user_service"
-	"user_service/models"
-	"user_service/pkg/helper"
+	"Projects/store/user_service/genproto/user_service"
+	"Projects/store/user_service/models"
+	"Projects/store/user_service/pkg/helper"
 
 	"github.com/google/uuid"
 

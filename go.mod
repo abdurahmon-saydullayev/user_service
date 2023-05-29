@@ -1,4 +1,4 @@
-module user_service
+module Projects/store/user_service
 
 go 1.20
 

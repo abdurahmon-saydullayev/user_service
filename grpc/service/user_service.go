@@ -2,12 +2,12 @@ package service
 
 import (
 	"context"
-	"user_service/config"
-	"user_service/genproto/user_service"
-	"user_service/grpc/client"
-	"user_service/models"
-	"user_service/pkg/logger"
-	"user_service/storage"
+	"Projects/store/user_service/config"
+	"Projects/store/user_service/genproto/user_service"
+	"Projects/store/user_service/grpc/client"
+	"Projects/store/user_service/models"
+	"Projects/store/user_service/pkg/logger"
+	"Projects/store/user_service/storage"
 
 	"github.com/golang/protobuf/ptypes/empty"
 	"google.golang.org/grpc/codes"
