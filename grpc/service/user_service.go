@@ -1,13 +1,13 @@
 package service
 
 import (
-	"context"
 	"Projects/store/user_service/config"
 	"Projects/store/user_service/genproto/user_service"
 	"Projects/store/user_service/grpc/client"
 	"Projects/store/user_service/models"
 	"Projects/store/user_service/pkg/logger"
 	"Projects/store/user_service/storage"
+	"context"
 
 	"github.com/golang/protobuf/ptypes/empty"
 	"google.golang.org/grpc/codes"
@@ -49,11 +49,14 @@ func (u *UserService) Create(ctx context.Context, req *user_service.CreateUser) 
 }
 
 func (u *UserService) GetByPK(ctx context.Context, req *user_service.UserPrimaryKey) (resp *user_service.User, err error) {
+
 	u.log.Info("---get userbyid---", logger.Any("req", req))
+
 	user, err := u.strg.User().GetByPK(ctx, req)
 	if err != nil {
 		return nil, err
 	}
+	
 	return user, err
 }
 
@@ -135,4 +138,44 @@ func (i *UserService) Delete(ctx context.Context, req *user_service.UserPrimaryK
 	}
 
 	return &empty.Empty{}, nil
+}
+
+// otp
+func (i *UserService) CreateUserOTP(ctx context.Context, req *user_service.CreateOTP) (resp *empty.Empty, err error) {
+
+	i.log.Info("---CreateUserOTP------->", logger.Any("req", req))
+
+	err = i.strg.User().CreateOTP(ctx, req)
+	if err != nil {
+		i.log.Error("!!!CreateUserOTP->OTP->Create--->", logger.Error(err))
+		return nil, status.Error(codes.InvalidArgument, err.Error())
+	}
+
+	return &empty.Empty{}, nil
+}
+
+func (i *UserService) VerifyUserOTP(ctx context.Context, req *user_service.VerifyOTP) (resp *empty.Empty, err error) {
+
+	i.log.Info("---VerifyUserOTP------->", logger.Any("req", req))
+
+	err = i.strg.User().VerifyOTP(ctx, req)
+	if err != nil {
+		i.log.Error("!!!VerifyUserOTP->OTP->Verify--->", logger.Error(err))
+		return nil, status.Error(codes.InvalidArgument, err.Error())
+	}
+
+	return &empty.Empty{}, nil
+}
+
+func (i *UserService) Check(ctx context.Context, req *user_service.UserPhoneNumberReq) (resp *user_service.User, err error) {
+
+	i.log.Info("---CheckUser------>", logger.Any("req", req))
+
+	resp, err = i.strg.User().GetByPhoneNumber(ctx, req)
+	if err != nil {
+		i.log.Error("!!!GetUserByPhoneNumber->User->Get--->", logger.Error(err))
+		return nil, status.Error(codes.InvalidArgument, err.Error())
+	}
+
+	return
 }
