@@ -24,7 +24,6 @@ type Config struct {
 
 	Environment string // debug, test, release
 	Version     string
-
 	
 	PostgresHost     string
 	PostgresPort     int

@@ -1,1 +1,1 @@
-DROP TABLE IF EXISTS "sms_otp";
+DROP TABLE IF EXISTS "otp";

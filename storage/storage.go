@@ -19,9 +19,9 @@ type UserRepoI interface {
 	UpdatePatch(ctx context.Context, req *models.UpdatePatchRequest) (rowsAffected int64, err error)
 	Delete(ctx context.Context, req *user_service.UserPrimaryKey) error
 
-	// GetByPhoneNumber(context.Context, *user_service.UserPhoneNumberReq) (*user_service.User, error)
+	GetByPhoneNumber(context.Context, *user_service.UserPhoneNumberReq) (*user_service.User, error)
 
-	// //otp
-	// CreateOTP(context.Context, *user_service.CreateOTP) error
-	// VerifyOTP(context.Context, *user_service.VerifyOTP) error
+	//otp
+	CreateOTP(context.Context, *user_service.CreateOTP) error
+	VerifyOTP(context.Context, *user_service.VerifyOTP) error
 }

@@ -1,13 +1,13 @@
 package postgres
 
 import (
+	"Projects/store/user_service/genproto/user_service"
+	"Projects/store/user_service/models"
+	"Projects/store/user_service/pkg/helper"
 	"context"
 	"database/sql"
 	"errors"
 	"fmt"
-	"Projects/store/user_service/genproto/user_service"
-	"Projects/store/user_service/models"
-	"Projects/store/user_service/pkg/helper"
 
 	"github.com/google/uuid"
 
