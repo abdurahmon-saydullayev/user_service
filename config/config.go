@@ -42,9 +42,9 @@ func Load() Config {
 
 	config := Config{}
 
-	config.ServiceName = cast.ToString(getOrReturnDefaultValue("SERVICE_NAME", "store_user"))
+	config.ServiceName = cast.ToString(getOrReturnDefaultValue("SERVICE_NAME", "store_user_service"))
 	config.ServiceHost = cast.ToString(getOrReturnDefaultValue("SERVICE_HOST", "localhost"))
-	config.ServicePort = cast.ToString(getOrReturnDefaultValue("SERVICE_PORT", ":9000"))
+	config.ServicePort = cast.ToString(getOrReturnDefaultValue("SERVICE_PORT", ":9091"))
 
 	config.Environment = cast.ToString(getOrReturnDefaultValue("ENVIRONMENT", DebugMode))
 	config.Version = cast.ToString(getOrReturnDefaultValue("VERSION", "1.0"))

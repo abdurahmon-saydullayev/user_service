@@ -48,7 +48,7 @@ func (u *UserService) Create(ctx context.Context, req *user_service.CreateUser) 
 	return resp, err
 }
 
-func (u *UserService) GetByPK(ctx context.Context, req *user_service.UserPrimaryKey) (resp *user_service.User, err error) {
+func (u *UserService) GetByID(ctx context.Context, req *user_service.UserPrimaryKey) (resp *user_service.User, err error) {
 
 	u.log.Info("---get userbyid---", logger.Any("req", req))
 

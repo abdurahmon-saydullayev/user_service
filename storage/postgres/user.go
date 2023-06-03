@@ -57,8 +57,8 @@ func (u *userRepo) Create(ctx context.Context, req *user_service.CreateUser) (re
 	return &user_service.UserPrimaryKey{Id: id}, nil
 }
 
-func (u *userRepo) GetByPK(ctx context.Context, req *user_service.UserPrimaryKey) (user *user_service.User, err error) {
-	// var user *user_service.User
+func (u *userRepo) GetByPK(ctx context.Context, req *user_service.UserPrimaryKey) (resp *user_service.User,err error) {
+	
 	query := `
 		SELECT 
 			id,
@@ -72,7 +72,7 @@ func (u *userRepo) GetByPK(ctx context.Context, req *user_service.UserPrimaryKey
 		FROM "user"
 		WHERE id = $1
 	`
-
+	resp = &user_service.User{}
 	var (
 		id            sql.NullString
 		first_name    sql.NullString
@@ -95,10 +95,10 @@ func (u *userRepo) GetByPK(ctx context.Context, req *user_service.UserPrimaryKey
 		&updated_at,
 	)
 	if err != nil {
-		return user, err
+		return resp, err
 	}
 
-	user = &user_service.User{
+	resp = &user_service.User{
 		Id:          id.String,
 		FirstName:   first_name.String,
 		LastName:    last_name.String,
@@ -109,16 +109,7 @@ func (u *userRepo) GetByPK(ctx context.Context, req *user_service.UserPrimaryKey
 		UpdatedAt:   updated_at.String,
 	}
 
-	// user.Id=id.String
-	// user.FirstName=first_name.String
-	// user.LastName=last_name.String
-	// user.PhoneNumber=phone_number.String
-	// user.DateOfBirth=date_of_birth.String
-	// user.Password=password.String
-	// user.CreatedAt=created_at.String
-	// user.UpdatedAt=updated_at.String
-
-	return user, nil
+	return resp, nil
 }
 
 func (u *userRepo) GetList(ctx context.Context, req *user_service.GetListUserRequest) (resp *user_service.GetListUserResponse, err error) {

@@ -13,7 +13,7 @@ type StorageI interface {
 
 type UserRepoI interface {
 	Create(context.Context, *user_service.CreateUser) (*user_service.UserPrimaryKey, error)
-	GetByPK(ctx context.Context, req *user_service.UserPrimaryKey) (*user_service.User, error)
+	GetByPK(ctx context.Context, req *user_service.UserPrimaryKey) (resp *user_service.User,err error)
 	GetList(context.Context, *user_service.GetListUserRequest) (*user_service.GetListUserResponse, error)
 	Update(ctx context.Context, req *user_service.UpdateUser) (rowsAffected int64, err error)
 	UpdatePatch(ctx context.Context, req *models.UpdatePatchRequest) (rowsAffected int64, err error)
